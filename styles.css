@@ -1,0 +1,123 @@
+:root {
+  --bg: #f4f7fb;
+  --panel: #ffffff;
+  --border: #d8e1ec;
+  --text: #1f2a36;
+  --accent: #2f72ff;
+  --accent-2: #0fba81;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, Segoe UI, Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  background: #fff;
+}
+h1 { margin: 0 0 4px; font-size: 1.4rem; }
+header p { margin: 0; color: #516276; }
+
+main {
+  display: grid;
+  grid-template-columns: 320px 1fr 420px;
+  gap: 14px;
+  padding: 14px;
+  min-height: calc(100vh - 95px);
+}
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+}
+.controls input,
+.controls select,
+.controls button {
+  width: 100%;
+  margin-top: 6px;
+  margin-bottom: 10px;
+}
+label { font-size: 0.9rem; font-weight: 600; }
+input, select, button, .file-label {
+  border: 1px solid #bfd0e3;
+  border-radius: 8px;
+  padding: 9px;
+  background: #fff;
+}
+button, .file-label {
+  cursor: pointer;
+  font-weight: 600;
+}
+button:hover, .file-label:hover {
+  filter: brightness(0.98);
+}
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.row.wrap { grid-template-columns: 1fr 1fr; }
+.run {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.file-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#importInput { display: none; }
+.hint {
+  font-size: 0.82rem;
+  color: #5f7084;
+}
+
+#cy {
+  width: 100%;
+  height: calc(100vh - 180px);
+  min-height: 500px;
+  border: 1px dashed #ccd8e6;
+  border-radius: 10px;
+}
+
+.result-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+code {
+  background: #f0f4fa;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+pre {
+  white-space: pre-wrap;
+  background: #0c1220;
+  color: #c9d7f4;
+  border-radius: 8px;
+  padding: 10px;
+  min-height: 380px;
+  max-height: calc(100vh - 280px);
+  overflow: auto;
+}
+
+@media (max-width: 1200px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+  #cy {
+    height: 520px;
+  }
+}
