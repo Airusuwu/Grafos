@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AFN-ε a Regex con Lema de Arden</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/cytoscape@3.30.2/dist/cytoscape.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Diseñador AFN-ε + Lema de Arden</h1>
+    <p>Construye tu autómata, elimina ε-transiciones y obtén la expresión regular paso a paso.</p>
+  </header>
+
+  <main>
+    <aside class="panel controls">
+      <h2>Configuración</h2>
+
+      <label for="alphabetInput">Alfabeto (coma separada):</label>
+      <input id="alphabetInput" type="text" placeholder="a,b,c" />
+
+      <div class="row">
+        <button id="addStateBtn">+ Agregar estado</button>
+        <button id="deleteSelectedBtn">Eliminar seleccionado</button>
+      </div>
+
+      <h3>Transición</h3>
+      <label for="sourceSelect">Origen:</label>
+      <select id="sourceSelect"></select>
+
+      <label for="targetSelect">Destino:</label>
+      <select id="targetSelect"></select>
+
+      <label for="labelInput">Símbolo(s):</label>
+      <input id="labelInput" type="text" placeholder="a,b,ε" />
+
+      <div class="row">
+        <button id="addTransitionBtn">Agregar / Actualizar arista</button>
+      </div>
+
+      <h3>Acciones</h3>
+      <div class="row wrap">
+        <button id="exportBtn">Exportar JSON</button>
+        <label class="file-label" for="importInput">Importar JSON</label>
+        <input id="importInput" type="file" accept="application/json" />
+      </div>
+
+      <button id="runArdenBtn" class="run">Ejecutar Arden</button>
+
+      <p class="hint">Tip: haz click en un estado para marcar/desmarcar final. Doble click para marcar inicial.</p>
+    </aside>
+
+    <section class="panel graph-panel">
+      <h2>Editor gráfico</h2>
+      <div id="cy"></div>
+    </section>
+
+    <section class="panel output">
+      <h2>Resultado</h2>
+      <div class="result-box">
+        <strong>Regex final:</strong>
+        <code id="regexOutput">(aún no calculada)</code>
+        <button id="copyRegexBtn">Copiar</button>
+      </div>
+
+      <details open>
+        <summary>Proceso detallado</summary>
+        <pre id="processLog"></pre>
+      </details>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
